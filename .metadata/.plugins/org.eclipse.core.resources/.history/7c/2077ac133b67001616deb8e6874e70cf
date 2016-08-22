@@ -1,0 +1,12 @@
+package org.sukhada.practice.messenger.resources;
+
+import javax.ws.rs.Path;
+
+@Path("/messages")
+public class MessageResource {
+	public String getMessages()
+	{
+		return "Test";	
+	}
+
+}

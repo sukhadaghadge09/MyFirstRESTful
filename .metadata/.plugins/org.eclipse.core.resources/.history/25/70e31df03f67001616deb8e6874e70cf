@@ -1,0 +1,10 @@
+package org.sukhada.practice.messenger.service;
+
+public class MessageService {
+	
+	public list<Message> getAllMessage()
+	{
+		
+	}
+
+}

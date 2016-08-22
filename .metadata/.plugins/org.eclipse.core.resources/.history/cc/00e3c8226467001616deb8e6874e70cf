@@ -1,0 +1,37 @@
+package org.sukhada.practice.messenger.service;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.sukhada.practice.messenger.database.DatabaseClass;
+import org.sukhada.practice.messenger.model.Message;
+import org.sukhada.practice.messenger.model.Profile;
+
+public class MessageService {
+	
+ public Map<Long,Message> message=DatabaseClass.getMessage();
+ //public Map<Long,Profile> profile=DatabaseClass.getProfile();
+ public List<Message> getAllMessage()
+ {
+	 return new ArrayList(message.values());
+ }
+	
+/*	Before DatabaseClass
+ * 
+ * //database connection to take data from database use either JDBC or Hibernate
+	public List<Message> getAllMessages()
+	{
+		Message msg1=new Message(1L,"Hello","sukhada");
+		Message msg2=new Message(2L,"Welcome to RESTful world","sukhada");
+		//ArrayList<Message> list=new ArrayList<Message>();
+		List<Message> list=new ArrayList<>();
+		list.add(msg1);
+		list.add(msg2);
+		
+		return list;
+		
+	}*/
+
+}

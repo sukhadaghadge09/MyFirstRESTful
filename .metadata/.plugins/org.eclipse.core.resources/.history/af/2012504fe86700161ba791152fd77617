@@ -1,0 +1,48 @@
+package org.sukhada.practice.messenger.resources;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.sukhada.practice.messenger.model.Message;
+import org.sukhada.practice.messenger.service.MessageService;
+
+@Path("/messages")
+public class MessageResource {
+	MessageService messageService=new MessageService();
+	
+	@GET 
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Message> getMessages()
+	{
+		return messageService.getAllMessages();	
+	}
+
+	@GET 
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getMessages1()
+	{
+		StringBuilder text=new StringBuilder();
+		for(Message message: messageService.getAllMessages())
+		{
+			text.append(message.toString());
+		}
+		return text.toString();	
+	}
+	
+	//id here is coming as a string but jersey is converting it into Long
+	@GET
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_XML)
+	public Message getMessage(@PathParam("id") Long messageID )
+	{
+		return messageService.getMessage(messageID);
+	}
+
+}
+

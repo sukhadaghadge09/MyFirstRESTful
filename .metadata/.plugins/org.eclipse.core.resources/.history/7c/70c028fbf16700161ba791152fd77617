@@ -1,0 +1,14 @@
+package org.sukhada.practice.messenger.resources;
+
+import java.util.Map;
+
+import javax.ws.rs.Path;
+
+import org.sukhada.practice.messenger.database.DatabaseClass;
+import org.sukhada.practice.messenger.model.Profile;
+
+@Path("/profiles")
+public class ProfileResource {
+
+	private Map<String,Profile> profiles=DatabaseClass.getProfile();
+}

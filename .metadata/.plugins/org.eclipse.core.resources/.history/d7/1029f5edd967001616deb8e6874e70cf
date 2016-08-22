@@ -1,0 +1,95 @@
+package org.sukhada.practice.messenger.service;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.sukhada.practice.messenger.database.DatabaseClass;
+import org.sukhada.practice.messenger.model.Message;
+import org.sukhada.practice.messenger.model.Profile;
+
+public class MessageService {
+	
+	
+	/* getMessage is called from Databaseclass to get all messages and it 
+	 * should return MAP only
+	 */
+ public Map<Long,Message> messages=DatabaseClass.getMessage();
+ //public Map<Long,Profile> profile=DatabaseClass.getProfile();
+ public List<Message> getAllMessages()
+ {
+	 return new ArrayList(messages.values());
+ }
+
+ public Message getMessage(Long id)
+ {
+	return messages.get(id);
+	/*to write DatabaseClass.getMessage() every time have created
+	Map object else we can do like below
+	 return DatabaseClass.getMessage().get(id);
+	 */
+ }
+ 
+ public Message addMessage(Message message)
+ {
+	 message.setId(messages.size() +1);
+	 messages.put(message.getId(), message);
+	 return message;
+ }
+ 
+ public void updateMessage(Message message)
+ {
+	 if(message.getId()<=0)
+	 {
+		 return ;
+	 }
+	 else
+	 {
+		 messages.put(message.getId(), message);
+	 }
+ }
+ 
+ public void removeMessage(Long id)
+ {
+	 messages.remove(id);
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+	
+/*	Before DatabaseClass
+ * 
+ * //database connection to take data from database use either JDBC or Hibernate
+	public List<Message> getAllMessages()
+	{
+		Message msg1=new Message(1L,"Hello","sukhada");
+		Message msg2=new Message(2L,"Welcome to RESTful world","sukhada");
+		//ArrayList<Message> list=new ArrayList<Message>();
+		List<Message> list=new ArrayList<>();
+		list.add(msg1);
+		list.add(msg2);
+		
+		return list;
+		
+	}*/
+
+}

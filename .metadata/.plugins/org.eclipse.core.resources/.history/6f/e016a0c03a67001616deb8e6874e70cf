@@ -1,0 +1,5 @@
+package org.sukhada.practice.messenger.resources;
+
+public class MessageResource {
+
+}

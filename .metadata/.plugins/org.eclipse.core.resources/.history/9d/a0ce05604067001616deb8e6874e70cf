@@ -1,0 +1,17 @@
+package org.sukhada.practice.messenger.service;
+
+import java.util.Date;
+import java.util.List;
+
+import org.sukhada.practice.messenger.model.Message;
+
+public class MessageService {
+	
+	public List<Message> getAllMessage()
+	{
+		Message msg1=new Message(1L,"Hello","author");
+		Message msg2=new Message(2L,"Hello","author");
+		
+	}
+
+}

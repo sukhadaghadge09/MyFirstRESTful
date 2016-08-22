@@ -1,0 +1,5 @@
+package org.sukhada.practice.messenger.model;
+
+public class Profile {
+
+}

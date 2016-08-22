@@ -1,0 +1,23 @@
+package org.sukhada.practice.messenger.database;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.persistence.tools.profiler.Profile;
+import org.sukhada.practice.messenger.model.Message;
+
+public class DatabaseClass {
+	
+	public static Map<Long,Message> messages=new HashMap<>();
+	public static Map<Long,Profile> profiles=new HashMap<>();
+	
+	public static Map<Long,Message>  getMessage()
+	{
+		return messages;
+	}
+	
+	public static Map<Long,Message>  getProfile()
+	{
+		return profiles;
+	}
+}
